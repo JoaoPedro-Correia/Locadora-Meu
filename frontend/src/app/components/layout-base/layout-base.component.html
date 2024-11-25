@@ -1,0 +1,16 @@
+<div class="layout-container">
+    <app-navbar (open)="toggleNavbar()"></app-navbar>
+    <main class="content">
+      <header class="page-header">
+        <h3>{{ title }}</h3>
+        @if (btnTitle) {
+           <button (click)="btnNew()">{{ btnTitle }}</button>
+        }
+      </header>
+      <section class="page-content">
+         <ng-content></ng-content>
+      </section>
+    </main>
+    <app-sidebar [show]="showNavbar" (closeModal)="toggleNavbar()"></app-sidebar>
+ </div>
+ 
