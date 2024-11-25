@@ -46,6 +46,7 @@ export class TituloComponent implements OnInit{
   listAll(){
     this.tituloService.listAll().subscribe({
       next: (res) => {
+        console.log(res)
         this.items = res.dados
       },
       error: () => {
