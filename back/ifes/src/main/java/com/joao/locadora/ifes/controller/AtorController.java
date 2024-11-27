@@ -58,8 +58,9 @@ public class AtorController {
     @GetMapping("/findAll")
     public ResponseEntity<List<AtorDTO>> findAll(){
         try {
-            List<AtorDTO> atorDTO = this.atorService.findAll();
-            return new ResponseEntity<>(atorDTO,HttpStatus.OK);
+            ResponseEntity<List<AtorDTO>> atorDTO = this.atorService.findAll();
+            return atorDTO;
+            //return new ResponseEntity<>(atorDTO,HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }

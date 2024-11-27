@@ -44,7 +44,7 @@ export class ItemComponent implements OnInit{
   listAll(){
     this.itemService.listAll().subscribe({
       next: (res) => {
-        this.items = res.dados
+        this.items = res
       },
       error: () => {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao listar classes' });
@@ -68,7 +68,7 @@ export class ItemComponent implements OnInit{
   handleEdit(id: number){
     this.itemService.listById(id).subscribe({
       next: (res) => {
-        this.itemToEdit = res.dados
+        this.itemToEdit = res;
         this.item = this.itemToEdit.numSerie;
         this.tipoItem = this.itemToEdit.tipoItem;
         this.dtAquisicao = this.datePipe.transform(this.itemToEdit.dtAquisicao, 'yyyy-MM-dd') || ''

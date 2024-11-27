@@ -47,7 +47,7 @@ export class TituloComponent implements OnInit{
     this.tituloService.listAll().subscribe({
       next: (res) => {
         console.log(res)
-        this.items = res.dados
+        this.items = res
       },
       error: () => {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao listar classes' });
@@ -71,7 +71,7 @@ export class TituloComponent implements OnInit{
   handleEdit(id: number){
     this.tituloService.listById(id).subscribe({
       next: (res) => {
-        this.itemToEdit = res.dados;
+        this.itemToEdit = res;
         this.titulo = this.itemToEdit.nome;
         this.sinopse = this.itemToEdit.sinopse;
         this.categoria = this.itemToEdit.categoria;

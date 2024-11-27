@@ -21,9 +21,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class AtorComponent implements OnInit{
   isDialogOpen: boolean = false;
-  items!: Ator[]
+  items!: Ator[];
   itemToEdit!: Ator | null;
-  ator: string = ''
+  ator: string = '';
 
   constructor(private messageService: MessageService, private atorService: AtorService, private confirmationService: ConfirmationService) {}
 
@@ -39,7 +39,7 @@ export class AtorComponent implements OnInit{
   listAll(){
     this.atorService.listAll().subscribe({
       next: (res) => {
-        this.items = res.dados
+        this.items = res
         console.log(res)
       },
       error: () => {
@@ -64,7 +64,7 @@ export class AtorComponent implements OnInit{
   handleEdit(id: number){
     this.atorService.listById(id).subscribe({
       next: (res) => {
-        this.itemToEdit = res.dados
+        this.itemToEdit = res
         this.ator = this.itemToEdit.nome;
         this.isDialogOpen = true
       },

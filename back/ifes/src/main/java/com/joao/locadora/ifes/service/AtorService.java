@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -32,10 +33,10 @@ public class AtorService {
         return new AtorDTO(this.atorRepository.findById(id).get());
     }
 
-    public List<AtorDTO> findAll(){
+    public ResponseEntity<List<AtorDTO>> findAll(){
         List<AtorDTO> atorDTOs = new ArrayList<>(500);
         this.atorRepository.findAll().stream().filter((ator) -> (atorDTOs.add(new AtorDTO(ator)))).toList();
-        return atorDTOs;
+        return ResponseEntity.ok().body(atorDTOs);
     }
 
     public String deleteById(Long id){

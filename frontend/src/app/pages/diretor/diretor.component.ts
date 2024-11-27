@@ -39,7 +39,7 @@ export class DiretorComponent implements OnInit{
   listAll(){
     this.diretorService.listAll().subscribe({
       next: (res) => {
-        this.items = res.dados
+        this.items = res;
       },
       error: () => {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao listar diretores' });
@@ -63,7 +63,7 @@ export class DiretorComponent implements OnInit{
   handleEdit(id: number){
     this.diretorService.listById(id).subscribe({
       next: (res) => {
-        this.itemToEdit = res.dados
+        this.itemToEdit = res
         this.diretor = this.itemToEdit.nome;
         this.isDialogOpen = true
       },
