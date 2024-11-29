@@ -33,7 +33,6 @@ public class AtorController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findById/{id}")
     public ResponseEntity<AtorDTO> findById(@PathVariable Long id){
         try{
@@ -54,7 +53,6 @@ public class AtorController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findAll")
     public ResponseEntity<List<AtorDTO>> findAll(){
         try {

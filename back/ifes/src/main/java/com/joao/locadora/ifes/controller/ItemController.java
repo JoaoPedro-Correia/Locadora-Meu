@@ -33,7 +33,6 @@ public class ItemController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findById/{id}")
     public ResponseEntity<ItemDTO> findById(@PathVariable Long id){
         try{
@@ -54,7 +53,6 @@ public class ItemController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findAll")
     public ResponseEntity<List<ItemDTO>> findAll(){
         try {

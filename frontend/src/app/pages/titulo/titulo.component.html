@@ -85,6 +85,15 @@
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
         />
       </div>
+      <div class="mb-3 w-full">
+        <label for="" class="block mb-2">Diretor: </label>
+        <select class="form-select text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" aria-label="Default select example">
+          <option selected>Selecione um diretor</option>
+          @for (diretor of diretores; track $index) {
+            <option value={{diretor.id}}>{{diretor.nome}}</option>
+          }
+        </select>
+      </div>
 
       <p-button
         label="Salvar"

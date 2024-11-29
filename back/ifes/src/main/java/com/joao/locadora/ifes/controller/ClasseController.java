@@ -33,7 +33,6 @@ public class ClasseController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findById/{id}")
     public ResponseEntity<ClasseDTO> findById(@PathVariable Long id){
         try{
@@ -54,7 +53,6 @@ public class ClasseController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findAll")
     public ResponseEntity<List<ClasseDTO>> findAll(){
         try {

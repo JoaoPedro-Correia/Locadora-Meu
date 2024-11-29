@@ -33,7 +33,6 @@ public class DiretorController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findById/{id}")
     public ResponseEntity<DiretorDTO> findById(@PathVariable Long id){
         try{
@@ -54,7 +53,6 @@ public class DiretorController {
         }
     }
 
-    @SuppressWarnings("null")
     @GetMapping("/findAll")
     public ResponseEntity<List<DiretorDTO>> findAll(){
         try {

@@ -95,9 +95,9 @@ export class AtorComponent implements OnInit{
     this.atorService.update(obj).subscribe({
       next: () => {
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Registro atualizado com sucesso', life: 3000 });
-        this.itemToEdit = null
-        this.listAll()
-        this.toggleDialog()
+        this.itemToEdit = null;
+        this.listAll();
+        this.toggleDialog();
       },
       error: () => {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao atualizar registro' });
@@ -109,12 +109,12 @@ export class AtorComponent implements OnInit{
     const obj: Ator = {
       nome: this.ator,
     }
-
+    console.log(obj);
     this.atorService.create(obj).subscribe({
       next: () => {
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Registro inserido com sucesso', life: 3000 });
-        this.listAll()
-        this.toggleDialog()
+        this.listAll();
+        this.toggleDialog();
       },
       error: () => {
         this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao inserir registro' });

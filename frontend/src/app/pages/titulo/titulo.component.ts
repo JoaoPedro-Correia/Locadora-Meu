@@ -11,6 +11,12 @@ import { TituloService } from '../../services/titulo.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Titulo } from '../../interfaces/titulo';
 import { DatePipe } from '@angular/common';
+import { Diretor } from '../../interfaces/diretor';
+import { Classe } from '../../interfaces/classe';
+import { Ator } from '../../interfaces/ator';
+import { AtorService } from '../../services/ator.service';
+import { ClasseService } from '../../services/classe.service';
+import { DiretorService } from '../../services/diretor.service';
 
 @Component({
   selector: 'app-classe',
@@ -24,15 +30,24 @@ export class TituloComponent implements OnInit{
   isDialogOpen: boolean = false;
   items!: Titulo[]
   itemToEdit!: Titulo | null;
+
   titulo: string = '';
   ano: string = '';
   sinopse: string = '';
   categoria: string = '';
 
+  diretores!: Diretor[];
+  classes!: Classe[];
+  atores!: Ator[];
+  atorService!: AtorService;
+  classeService!: ClasseService;
+  diretorService!: DiretorService;
+
   constructor(private messageService: MessageService, private tituloService: TituloService, private confirmationService: ConfirmationService, private datePipe: DatePipe) {}
 
   ngOnInit(): void {
-    this.listAll()
+    this.listAll();
+    this.listAllDiretor()
   }
 
   toggleDialog(){
@@ -43,10 +58,20 @@ export class TituloComponent implements OnInit{
     this.isDialogOpen = !this.isDialogOpen
   }
 
+  listAllDiretor(){
+    this.diretorService.listAll().subscribe({
+      next: (res) => {
+        this.diretores = res
+      },
+      error: () => {
+        this.messageService.add({ severity: 'error', summary: 'Erro', detail: 'Erro ao listar classes' });
+      }
+    })
+  }
+
   listAll(){
     this.tituloService.listAll().subscribe({
       next: (res) => {
-        console.log(res)
         this.items = res
       },
       error: () => {
